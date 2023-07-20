@@ -1,6 +1,7 @@
 import { useState } from "react";
 import products from '../lista-produtos.json';
-import banner from '../assets/banner.png'
+import banner from '../assets/banner.png';
+import Item from '../components/Item';
 
 // Cada componente é um função JS, que pode conter atributo, métodos e um retorno
 export default function Products() {
@@ -19,11 +20,12 @@ export default function Products() {
                 <img src={banner} alt="Banner"/>
             </section>
             
-            <section className='main-products'>
+            <section className="main-products">
                 {
-                    productList.map((item) => {
-                        return JSON.stringify(item)
-                    })
+                    productList.map((productItr, id) => (
+                            <Item key={id} infosProduct={productItr}/>
+                        )
+                    )
                 }
             </section>
 
