@@ -20,7 +20,7 @@ export default function Item(props) {
     }
 
     const comprarProduto = () => {
-        if (window.confirm(`Preço final: ${product.price * quantity}`)) {
+        if (window.confirm(`Preço final: ${product.preco_unitario * quantity}`)) {
             alert('Produto(s) comprado com sucesso!');
             setQuantity(1);
         }
@@ -28,11 +28,11 @@ export default function Item(props) {
     
     return (
         <article className="product">
-            <img src={product.image} alt='Imagem não foi carregada'/>
+            <img src={product.image_path} alt='Imagem não foi carregada'/>
             <h3 className="price-product">
-                R$ <span>{product.price}</span>
+                R$ <span>{product.preco_unitario}</span>
             </h3>
-            <p className="name-product">{product.title}</p>
+            <p className="name-product">{product.nome}</p>
             <div className="quantity">
                 <span>Quantidade: </span>
                 <button disabled={disableButton} className="minus" onClick={diminuirQtd}> - </button>
